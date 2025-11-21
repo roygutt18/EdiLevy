@@ -1,3 +1,4 @@
+
 /* ==========================================
    EDI LEVY FITNESS - Professional Refined Design
    Color Scheme: Blue (#0050ff, #0088ff), Black (#000000), White (#ffffff)
@@ -1936,9 +1937,7 @@ textarea:focus {
   }
 }
 
-/* ...existing code... */
-
-/* Ensure results grid is always inside the viewport and images are responsive */
+/* Responsive Results Grid */
 .results-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1949,16 +1948,12 @@ textarea:focus {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
 .results-grid img {
   max-width: 100%;
   height: auto;
-  display: block;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
 }
-
-/* Responsive: stack images vertically on small screens */
 @media (max-width: 600px) {
   .results-grid {
     flex-direction: column;
@@ -1968,39 +1963,34 @@ textarea:focus {
   .results-grid img {
     width: 100%;
     max-width: 350px;
-    height: auto;
   }
 }
 
-/* ...existing code... */
-
-@media (max-width: 600px) {
-  .navbar {
-    padding: 0.75rem 0.5rem;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    min-width: 0;
-    box-sizing: border-box;
-  }
+/* Mobile Navbar & Accessibility Button */
+@media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 60px;
-    right: 0;
-    left: 0;
-    width: 100vw;
-    background: rgba(0,0,0,0.97);
+    top: 0;
+    right: -100vw;
+    width: 280px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
     flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    z-index: 999;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    transition: right 0.3s ease;
+    z-index: 1100;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
+  .nav-links.active {
+    right: 0;
+  }
+}
+@media (max-width: 600px) {
   .accessibility-widget {
-    position: fixed !important;
+    right: 16px !important;
+    left: auto !important;
     bottom: 16px !important;
-    left: 16px !important;
-    right: auto !important;
-    z-index: 2000;
   }
 }
