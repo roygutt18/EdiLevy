@@ -210,3 +210,12 @@ resetAccessibility.addEventListener('click', () => {
   document.documentElement.classList.remove('large-text', 'larger-text');
   textSizeLevel = 0;
 });
+
+
+document.getElementById('acceptCookies').addEventListener('click', () => {
+    document.getElementById('cookieBanner').style.display = 'none';
+    localStorage.setItem('cookiesAccepted', '1');
+  });
+  if (localStorage.getItem('cookiesAccepted') === '1') {
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
