@@ -1614,42 +1614,9 @@ html.larger-text {
   }
 }
 
-/* ===== Enhanced Responsive Design ===== */
-@media (max-width: 1200px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ...existing code above... */
 
-  .benefits-grid-large {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .app-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .online-course-wrapper,
-  .edi-story-container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-
-  .edi-story-left {
-    order: 2;
-    text-align: center;
-  }
-
-  .edi-story-right {
-    order: 1;
-  }
-
-  .oc-features {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* ======= Responsive Design: All under 768px in one block ======= */
 @media (max-width: 768px) {
   :root {
     --spacing-xl: 3rem;
@@ -1663,6 +1630,7 @@ html.larger-text {
 
   .navbar {
     padding: 1rem 1.5rem;
+    background: transparent;
   }
 
   .navbar.scrolled {
@@ -1677,7 +1645,7 @@ html.larger-text {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100vw;
     width: 280px;
     height: 100vh;
     background: rgba(0, 0, 0, 0.98);
@@ -1707,9 +1675,23 @@ html.larger-text {
     display: flex;
   }
 
+  .hero {
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .hero::before {
+    background: linear-gradient(135deg, rgba(0, 13, 33, 0.55), rgba(0, 20, 50, 0.35));
+  }
+
   .hero-content {
     text-align: center;
     align-items: center;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
   }
 
   .hero-content h1,
@@ -1728,12 +1710,16 @@ html.larger-text {
     width: 100%;
     justify-content: center;
     align-items: center;
+    gap: var(--spacing-sm);
   }
 
   .contact-btn,
   .details-btn {
     width: 100%;
     max-width: 320px;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    min-width: 120px;
   }
 
   .cards-container {
@@ -1744,6 +1730,7 @@ html.larger-text {
   .card {
     width: 100%;
     min-height: 340px;
+    background: rgba(0, 0, 0, 0.7);
   }
 
   .edi-desc {
@@ -1781,152 +1768,76 @@ html.larger-text {
     height: 54px;
     font-size: 22px;
   }
-}
 
-@media (max-width: 480px) {
-  section {
-    padding: var(--spacing-lg) var(--spacing-sm);
-  }
-
-  .contact-form {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-
-  .app-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .oc-features {
-    grid-template-columns: 1fr;
-  }
-
-  .benefits-grid-large {
-    grid-template-columns: 1fr;
-  }
-
-  .transition-row img {
-    height: 170px;
-    min-width: 220px;
-  }
-
-  .accessibility-menu {
-    width: 230px;
-    right: -5px;
-  }
-}
-
-/* ===== Print Styles ===== */
-@media print {
-  .navbar,
-  .hamburger,
-  .accessibility-widget,
-  .whatsapp-btn {
-    display: none;
-  }
-
-  section {
-    page-break-inside: avoid;
-    min-height: auto;
-  }
-}
-
-/* ===== Performance Optimizations ===== */
-.animate,
-.transition-row .images {
-  will-change: transform, opacity;
-}
-
-/* ===== Enhanced Focus Styles for Accessibility ===== */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 2.5px solid var(--secondary-blue);
-  outline-offset: 3px;
-  border-radius: 8px;
-}
-
-/* ===== Skip to Content Link ===== */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: var(--primary-blue);
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  z-index: 10000;
-  border-radius: 6px;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-/* Make sure hero background is visible and not too dark on mobile */
-@media (max-width: 768px) {
-  .hero {
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  .hero::before {
-    background: linear-gradient(135deg, rgba(0, 13, 33, 0.55), rgba(0, 20, 50, 0.35));
-  }
-  .hero-content {
-    padding: var(--spacing-lg) var(--spacing-sm);
-    color: var(--white);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  }
-  .navbar {
-    background: transparent;
-  }
-  .nav-links {
-    background: rgba(0, 0, 0, 0.97);
-  }
-  .card {
-    background: rgba(0, 0, 0, 0.7);
-  }
-  .edi-levy,
-  .section-benefits-large,
-  .online-course,
-  .app-short,
-  .studio-section,
-  .edi-story,
-  .contact-section {
-    background: #0a1f3a;
-    background-image: none !important;
-  }
-}
-
-/* Make text more readable on very small screens */
-@media (max-width: 480px) {
-  body {
-    font-size: 15px;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-}
-
-
-/* Responsive fix for results grid */
-@media (max-width: 900px) {
+  /* Results grid responsive */
   .results-grid {
     flex-wrap: wrap;
     gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
   .results-grid img {
     width: 48%;
     min-width: 0;
     max-width: 100%;
     height: 180px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Benefits grid responsive */
+  .benefits-grid-large {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 35px;
+  }
+
+  .benefit-card-large {
+    padding: 35px 25px;
+  }
+
+  .benefits-title-large {
+    font-size: 2.25rem;
+    margin-bottom: 60px;
+  }
+
+  .benefit-number {
+    font-size: 2.5rem;
+  }
+
+  .benefit-title-large {
+    font-size: 1.6rem;
+  }
+
+  .benefit-text-large {
+    font-size: 1.05rem;
+  }
+
+  /* Online course and story containers */
+  .online-course-wrapper,
+  .edi-story-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .edi-story-left {
+    order: 2;
+    text-align: center;
+  }
+
+  .edi-story-right {
+    order: 1;
+  }
+
+  .oc-features {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
+/* Extra mobile tweaks for 600px and below */
 @media (max-width: 600px) {
   .results-grid {
     flex-direction: column;
@@ -1939,101 +1850,11 @@ textarea:focus {
     max-width: 100%;
     height: 150px;
   }
-}
-
-/* Responsive Results Grid */
-.results-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-.results-grid img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-}
-@media (max-width: 600px) {
-  .results-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .results-grid img {
-    width: 100%;
-    max-width: 350px;
-  }
-}
-
-/* Mobile Navbar & Accessibility Button */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100vw;
-    width: 280px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.98);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-    transition: right 0.3s ease;
-    z-index: 1100;
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-  .nav-links.active {
-    right: 0;
-  }
-}
-@media (max-width: 600px) {
   .accessibility-widget {
     right: 16px !important;
     left: auto !important;
     bottom: 16px !important;
   }
-}
-
-/* --- HERO LANDING PAGE IMPROVEMENTS --- */
-
-/* Desktop: Make h1 much bigger, buttons smaller */
-.hero-content h1 {
-  font-size: clamp(4rem, 10vw, 8rem); /* Much bigger headline */
-}
-
-.hero-btns-container {
-  gap: var(--spacing-sm);
-}
-
-.contact-btn,
-.details-btn {
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  min-width: 120px;
-  max-width: 200px;
-}
-
-/* Tablet: Keep h1 big, buttons fit container */
-@media (max-width: 900px) {
-  .hero-content h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-  }
-  .contact-btn,
-  .details-btn {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.2rem;
-    min-width: 100px;
-    max-width: 180px;
-  }
-}
-
-/* Mobile: h1 still prominent, buttons full width but small */
-@media (max-width: 600px) {
   .hero-content h1 {
     font-size: 4rem;
   }
@@ -2046,4 +1867,10 @@ textarea:focus {
     width: 100%;
     flex: 1;
   }
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
 }
+
+/* ...existing code below... */
