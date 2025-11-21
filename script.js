@@ -219,3 +219,25 @@ document.getElementById('acceptCookies').addEventListener('click', () => {
   if (localStorage.getItem('cookiesAccepted') === '1') {
     document.getElementById('cookieBanner').style.display = 'none';
   }
+
+
+const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookieAccept');
+  const moreBtn = document.getElementById('cookieMore');
+
+  // אם כבר התקבל אישור – לא להציג שוב
+  if (localStorage.getItem('cookiesAccepted') === '1') {
+    banner.style.display = 'none';
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    banner.style.opacity = '0';
+    setTimeout(() => banner.style.display = 'none', 300);
+    localStorage.setItem('cookiesAccepted', '1');
+  });
+
+  moreBtn.addEventListener('click', () => {
+    window.open('/privacy.html', '_blank');
+  });
+
+localStorage.removeItem('cookiesAccepted')
