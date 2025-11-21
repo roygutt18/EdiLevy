@@ -567,6 +567,7 @@ section {
   display: flex;
   justify-content: center;
   gap: 40px; /* Space between images */
+   flex-wrap: wrap;
 }
 
 .results-grid img {
