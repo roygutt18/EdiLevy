@@ -1,10 +1,10 @@
 const images = [
-  "images/transition1.jpeg",
-  "images/transition2.jpeg",
-  "images/transition3.jpeg",
-  "images/transition4.jpeg",
-  "images/transition5.jpeg",
-  "images/transition6.jpeg",
+  "transition1.jpeg",
+  "transition2.jpeg",
+  "transition3.jpeg",
+  "transition4.jpeg",
+  "transition5.jpeg",
+  "transition6.jpeg",
 ];
 
 function shuffle(array) {
