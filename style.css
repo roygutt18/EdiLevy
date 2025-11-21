@@ -279,7 +279,7 @@ section {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url('images/hero.jpeg');
+  background-image: url('hero.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
