@@ -1,3 +1,4 @@
+
 const images = [
   "transition1.jpeg",
   "transition2.jpeg",
@@ -201,4 +202,3 @@ resetAccessibility.addEventListener('click', () => {
   document.documentElement.classList.remove('large-text', 'larger-text');
   textSizeLevel = 0;
 });
-
