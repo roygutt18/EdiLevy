@@ -1719,6 +1719,10 @@ html.larger-text {
     margin-left: auto;
   }
 
+  .hero-content h1 {
+    font-size: 6rem;
+  }
+
   .hero-btns-container {
     flex-direction: column;
     width: 100%;
@@ -1864,7 +1868,7 @@ textarea:focus {
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
-    min-height: 60vh;
+    min-height: 100vh;
   }
   .hero::before {
     background: linear-gradient(135deg, rgba(0, 13, 33, 0.55), rgba(0, 20, 50, 0.35));
@@ -1875,7 +1879,7 @@ textarea:focus {
     text-shadow: 0 2px 10px rgba(0,0,0,0.4);
   }
   .navbar {
-    background: rgba(0, 0, 0, 0.92);
+    background: transparent;
   }
   .nav-links {
     background: rgba(0, 0, 0, 0.97);
@@ -1992,5 +1996,54 @@ textarea:focus {
     right: 16px !important;
     left: auto !important;
     bottom: 16px !important;
+  }
+}
+
+/* --- HERO LANDING PAGE IMPROVEMENTS --- */
+
+/* Desktop: Make h1 much bigger, buttons smaller */
+.hero-content h1 {
+  font-size: clamp(4rem, 10vw, 8rem); /* Much bigger headline */
+}
+
+.hero-btns-container {
+  gap: var(--spacing-sm);
+}
+
+.contact-btn,
+.details-btn {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+/* Tablet: Keep h1 big, buttons fit container */
+@media (max-width: 900px) {
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+  .contact-btn,
+  .details-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 100px;
+    max-width: 180px;
+  }
+}
+
+/* Mobile: h1 still prominent, buttons full width but small */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  .contact-btn,
+  .details-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.4rem;
+    min-width: 90px;
+    max-width: 100%;
+    width: 100%;
+    flex: 1;
   }
 }
