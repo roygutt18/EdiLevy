@@ -1877,3 +1877,94 @@ html.larger-text {
 }
 
 /* ...existing code below... */
+
+
+
+.cookie-banner {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-family: "Arial", sans-serif;
+    direction: rtl;
+    transition: opacity 0.3s ease;
+  }
+
+  .cookie-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cookie-icon {
+    font-size: 26px;
+  }
+
+  .cookie-text {
+    margin: 0;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .cookie-text a {
+    color: #0078ff;
+    text-decoration: none;
+  }
+  .cookie-text a:hover {
+    text-decoration: underline;
+  }
+
+  .cookie-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .cookie-btn {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.15s ease;
+  }
+
+  .cookie-btn.accept {
+    background: #0078ff;
+    color: #fff;
+  }
+  .cookie-btn.accept:hover {
+    background: #005fcc;
+  }
+
+  .cookie-btn.more {
+    background: #f1f1f1;
+    color: #333;
+  }
+  .cookie-btn.more:hover {
+    background: #e1e1e1;
+  }
+
+  /* רספונסיבי לנייד */
+  @media (max-width: 600px) {
+    .cookie-banner {
+      padding: 16px;
+      gap: 14px;
+    }
+    .cookie-text {
+      font-size: 14px;
+    }
+    .cookie-btn {
+      font-size: 14px;
+      padding: 9px;
+    }
+  }
