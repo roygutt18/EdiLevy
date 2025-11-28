@@ -274,36 +274,52 @@ section {
 
 /* ===== Enhanced Hero Section ===== */
 .hero {
+  position: relative;
   min-height: 100vh;
-  background: linear-gradient(120deg, rgba(2, 3, 10, 0.75), rgba(8, 13, 31, 0.92)), url("hero.jpeg") center/cover fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-xxl) var(--space-md) var(--space-xl);
+  text-align: center;
+  padding: 0 var(--space-md);
+  background: url("hero.jpeg") center/cover fixed no-repeat;
+  overflow: hidden;
+}
+
+/* Overlay כהה מעל התמונה */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(2,3,10,0.7), rgba(8,13,31,0.85));
+  z-index: 1;
 }
 
 .hero-content {
-  text-align: center;
+  position: relative;
+  z-index: 2;
   max-width: 900px;
-  padding-top: var(--space-lg);
+  padding: var(--space-lg) 1rem;
+  color: white;
 }
 
 .hero-content h1 {
-  background: linear-gradient(120deg, var(--text-100), var(--accent-cyan));
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: 6rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
 }
 
 .hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
   color: var(--text-300);
 }
 
 .hero-btns-container {
-  margin-top: var(--space-md);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
   justify-content: center;
+  gap: 1rem;
 }
 
 .contact-btn,
@@ -317,18 +333,22 @@ section {
   justify-content: center;
   gap: 0.35rem;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), opacity var(--transition);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
+/* כפתורים */
 .contact-btn {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-  color: #070c18;
+  background: linear-gradient(135deg, blue, rgb(0, 102, 255));
+  color: #ffffff;
+  border-radius: 10px;
 }
 
 .details-btn {
-  background: linear-gradient(135deg, rgba(79, 125, 255, 0.25), rgba(48, 209, 255, 0.25));
+  background: rgba(79,125,255,0.15);
   color: var(--text-100);
-  border: 1px solid rgba(79, 125, 255, 0.4);
+  border: 1px solid rgba(79,125,255,0.4);
+  border-radius: 10px;
 }
 
 .whatsapp-btn {
@@ -336,16 +356,34 @@ section {
   color: #040b18;
 }
 
+/* Hover effects */
+.contact-btn:hover,
+.details-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
 .whatsapp-btn:hover {
   transform: translateY(-5px);
   color: #000;
 }
 
-.contact-btn:hover,
-.details-btn:hover
- {
-  transform: translateY(-2px);
-  opacity: 0.9;
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .contact-btn,
+  .details-btn,
+  .whatsapp-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+  }
 }
 
 
