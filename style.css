@@ -274,125 +274,80 @@ section {
 
 /* ===== Enhanced Hero Section ===== */
 .hero {
-  position: relative;
   min-height: 100vh;
+  background: linear-gradient(120deg, rgba(2, 3, 10, 0.75), rgba(8, 13, 31, 0.92)), url("hero.jpeg") center/cover fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background-image: url('hero.jpeg');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: var(--spacing-xxl) var(--spacing-md);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 13, 33, 0.8),  rgba(0, 20, 50, 0.7));
-  z-index: 1;
+  padding: var(--space-xxl) var(--space-md) var(--space-xl);
 }
 
 .hero-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  text-align: right;
-  padding: var(--spacing-xl);
-  animation: fadeInUp 1s ease-out;
+  text-align: center;
+  max-width: 900px;
+  padding-top: var(--space-lg);
 }
 
 .hero-content h1 {
-  font-size: clamp(2.75rem, 8.5vw, 5.5rem);
-  font-weight: var(--font-weight-black);
-  margin-bottom: var(--spacing-md);
-  color: var(--white);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 136, 255, 0.3);
-  max-width: 950px;
-  text-align: right;
+  background: linear-gradient(120deg, var(--text-100), var(--accent-cyan));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .hero-content p {
-  font-size: clamp(1.15rem, 3.2vw, 1.625rem);
-  line-height: 1.85;
-  color: var(--light-gray);
-  margin-bottom: var(--spacing-xl);
-  max-width: 820px;
-  text-align: right;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
-  opacity: 0.95;
-  font-weight: var(--font-weight-regular);
-  letter-spacing: 0.02em;
+  color: var(--text-300);
 }
 
 .hero-btns-container {
+  margin-top: var(--space-md);
   display: flex;
-  gap: var(--spacing-md);
   flex-wrap: wrap;
-  margin-top: var(--spacing-lg);
-  justify-content: flex-start;
-  align-items: center;
+  gap: var(--space-sm);
+  justify-content: center;
 }
 
 .contact-btn,
-.details-btn {
-  padding: 1.125rem 2.75rem;
-  font-size: 1.125rem;
-  font-weight: var(--font-weight-bold);
-  border-radius: 12px;
-  text-align: center;
-  transition: var(--transition-medium);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.5px;
-  box-shadow: var(--shadow-md);
-  display: inline-block;
-  min-width: 200px;
+.details-btn,
+.whatsapp-btn {
+  border-radius: var(--radius-pill);
+  padding: 0.95rem 2.4rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), opacity var(--transition);
 }
 
 .contact-btn {
-  background: rgba(0, 80, 255, 0.18);
-  backdrop-filter: blur(12px);
-  border: 2px solid var(--secondary-blue);
-  color: var(--secondary-blue);
-}
-
-.contact-btn:hover,
-.contact-btn:focus {
-  background: rgba(0, 80, 255, 0.28);
-  border-color: var(--light-blue);
-  color: var(--light-blue);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-blue-lg);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #070c18;
 }
 
 .details-btn {
-  background: linear-gradient(135deg, rgb(11, 49, 131), rgb(0, 132, 255));
-  color: var(--white);
-  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(79, 125, 255, 0.25), rgba(48, 209, 255, 0.25));
+  color: var(--text-100);
+  border: 1px solid rgba(79, 125, 255, 0.4);
 }
 
-.details-btn:hover,
-.details-btn:focus {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-blue-xl);
-  border-color: var(--light-blue);
+.whatsapp-btn {
+  background: linear-gradient(135deg, #36ff95, #1fb569);
+  color: #040b18;
 }
 
-.details-btn span,
-.contact-btn span {
-  position: relative;
-  z-index: 1;
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  color: #000;
 }
+
+.contact-btn:hover,
+.details-btn:hover
+ {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
 
 /* ===== Enhanced Services Section ===== */
 .edi-levy {
